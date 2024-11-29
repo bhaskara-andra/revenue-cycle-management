@@ -1,0 +1,26 @@
+{
+	"name": "ls_adls_storage1ab",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"container": {
+				"type": "string"
+			},
+			"folder": {
+				"type": "string"
+			},
+			"sub_folder": {
+				"type": "string"
+			},
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://storage1ab.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEZDQzQzRTJBLTNDMzktNDRENi04NDVFLUI5QzBBODE4NTZCNl83NzNhNjZjNy02OTI5LTQ4YzMtOGM4Ny1mZmFhYjk3YjJlMDQiDQp9"
+		}
+	}
+}
