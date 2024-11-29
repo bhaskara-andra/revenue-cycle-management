@@ -1,0 +1,9 @@
+{
+	"name": "projectnw",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5e39a084-bce8-4cee-9cae-7eb00bf6ad0c",
+		"tenantId": "810ab4d0-0a47-49ba-b925-ca05f39a5f93"
+	}
+}
