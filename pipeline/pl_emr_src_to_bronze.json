@@ -36,8 +36,6 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Lookup Is Active",
@@ -49,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@equals(activity('Lookup Is Active').output.is_active,'1')",
+						"value": "@equals(activity('Lookup Is Active').output.value.is_active,'1')\n",
 						"type": "Expression"
 					}
 				}
