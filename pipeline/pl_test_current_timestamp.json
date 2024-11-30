@@ -18,6 +18,23 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v_test",
+					"value": {
+						"value": "@concat(pipeline().parameters.object,'-',\nreplace(substring(utcnow(),0,10),'-',''),\nreplace(substring(utcnow(),11,1),'T',''),\nreplace(substring(utcnow(),12,7),':','')\n)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
@@ -28,6 +45,9 @@
 		},
 		"variables": {
 			"v_batch_run_id": {
+				"type": "String"
+			},
+			"v_test": {
 				"type": "String"
 			}
 		},
