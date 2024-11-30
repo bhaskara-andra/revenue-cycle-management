@@ -1,0 +1,54 @@
+{
+	"name": "ds_parquet_bronze_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_storage1ab",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"container": {
+					"value": "@dataset().container",
+					"type": "Expression"
+				},
+				"folder": {
+					"value": "@dataset().folder",
+					"type": "Expression"
+				},
+				"sub_folder": {
+					"value": "@dataset().sub_folder",
+					"type": "Expression"
+				},
+				"file_name": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"container": {
+				"type": "string",
+				"defaultValue": " revenue-cycle-management"
+			},
+			"folder": {
+				"type": "string",
+				"defaultValue": "bronze"
+			},
+			"file_name": {
+				"type": "string",
+				"defaultValue": " rcm-hosipital-a"
+			},
+			"sub_folder": {
+				"type": "string",
+				"defaultValue": "patients.csv"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
