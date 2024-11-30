@@ -1,0 +1,39 @@
+{
+	"name": "pl_test_current_timestamp",
+	"properties": {
+		"activities": [
+			{
+				"name": "Batch Run Id",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v_batch_run_id",
+					"value": {
+						"value": "@concat(pipeline().parameters.object,'-',formatDateTime(utcNow(),'yyyy-dd-MM'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"object": {
+				"type": "string",
+				"defaultValue": "IR-CCC"
+			}
+		},
+		"variables": {
+			"v_batch_run_id": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "revenue_cycle_management"
+		},
+		"annotations": []
+	}
+}
