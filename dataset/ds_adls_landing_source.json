@@ -30,11 +30,11 @@
 			},
 			"folder": {
 				"type": "string",
-				"defaultValue": " landing "
+				"defaultValue": "landing"
 			},
 			"sub_folder": {
 				"type": "string",
-				"defaultValue": " rcm-hosipital-a"
+				"defaultValue": "rcm-hosipital-a"
 			},
 			"file_name": {
 				"type": "string"
