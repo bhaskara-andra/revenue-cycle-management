@@ -20,7 +20,7 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "Set Batch Run Id",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
