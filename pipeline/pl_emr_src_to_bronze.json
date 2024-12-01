@@ -52,9 +52,13 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup isactive').output",
+						"type": "Expression"
+					},
 					"activities": [
 						{
-							"name": "Get Metadata1",
+							"name": "File Exists",
 							"type": "GetMetadata",
 							"dependsOn": [],
 							"policy": {
@@ -82,7 +86,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"exists"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"enablePartitionDiscovery": false
