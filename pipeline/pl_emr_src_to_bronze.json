@@ -32,6 +32,7 @@
 						"parameters": {
 							"container": "revenue-cycle-management",
 							"folder": "config",
+							"sub_folder": " ",
 							"file_name": "load_config.csv"
 						}
 					},
