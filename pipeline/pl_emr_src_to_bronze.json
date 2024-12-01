@@ -53,7 +53,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup isactive').output",
+						"value": "@activity('Lookup isactive').output.value",
 						"type": "Expression"
 					},
 					"activities": [
