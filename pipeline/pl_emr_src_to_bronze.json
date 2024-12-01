@@ -74,7 +74,7 @@
 									"referenceName": "ds_parquet_bronze_sink",
 									"type": "DatasetReference",
 									"parameters": {
-										"container": " revenue-cycle-management",
+										"container": "revenue-cycle-management",
 										"folder": "bronze",
 										"file_name": {
 											"value": "@split(item().tablename,'.')[1]",
