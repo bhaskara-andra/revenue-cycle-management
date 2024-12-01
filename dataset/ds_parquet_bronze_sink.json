@@ -26,19 +26,17 @@
 		"parameters": {
 			"container": {
 				"type": "string",
-				"defaultValue": " revenue-cycle-management"
+				"defaultValue": "revenue-cycle-management"
 			},
 			"folder": {
 				"type": "string",
 				"defaultValue": "bronze"
 			},
 			"file_name": {
-				"type": "string",
-				"defaultValue": " rcm-hosipital-a"
+				"type": "string"
 			},
 			"sub_folder": {
-				"type": "string",
-				"defaultValue": "patients.csv"
+				"type": "string"
 			}
 		},
 		"annotations": [],
