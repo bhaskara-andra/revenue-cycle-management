@@ -49,7 +49,61 @@
 					"items": {
 						"value": "@equals(activity('Lookup Is Active').output.value.is_active,'1')\n",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "FIle Exists",
+							"type": "GetMetadata",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "ds_adls_bronze_parquet",
+									"type": "DatasetReference",
+									"parameters": {
+										"container": "revenue-cycle-management",
+										"folder": "bronze",
+										"sub_folder": {
+											"value": "@item().targetpath",
+											"type": "Expression"
+										},
+										"file_name": {
+											"value": "@split(item().tablename,'.')[1]",
+											"type": "Expression"
+										}
+									}
+								},
+								"fieldList": [],
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "ParquetReadSettings"
+								}
+							}
+						},
+						{
+							"name": "If Condition1",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "FIle Exists",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": []
+						}
+					]
 				}
 			}
 		],
