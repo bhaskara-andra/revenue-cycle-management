@@ -182,7 +182,10 @@
 													"container": "revenue-cycle-management",
 													"folder": "bronze",
 													"file_name": "@split(item().tablename,'.')[1]",
-													"sub_folder": "archive"
+													"sub_folder": {
+														"value": "@concat('archive','/',utcNow())",
+														"type": "Expression"
+													}
 												}
 											}
 										]
