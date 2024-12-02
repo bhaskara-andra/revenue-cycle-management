@@ -91,7 +91,7 @@
 							}
 						},
 						{
-							"name": "If Condition1",
+							"name": "If File Exists",
 							"type": "IfCondition",
 							"dependsOn": [
 								{
@@ -185,11 +185,11 @@
 							}
 						},
 						{
-							"name": "If Condition2",
+							"name": "Check Load Type",
 							"type": "IfCondition",
 							"dependsOn": [
 								{
-									"activity": "If Condition1",
+									"activity": "If File Exists",
 									"dependencyConditions": [
 										"Succeeded"
 									]
