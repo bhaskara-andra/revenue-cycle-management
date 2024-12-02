@@ -1,0 +1,64 @@
+{
+	"name": "ds_adls_bronze_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_storage1ab",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"container": {
+					"value": "@dataset().container",
+					"type": "Expression"
+				},
+				"folder": {
+					"value": "@dataset().folder",
+					"type": "Expression"
+				},
+				"sub_folder": {
+					"value": "@dataset().sub_folder",
+					"type": "Expression"
+				},
+				"file_name": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"container": {
+				"type": "string",
+				"defaultValue": "revenue-cycle-management"
+			},
+			"folder": {
+				"type": "string",
+				"defaultValue": "bronze"
+			},
+			"sub_folder": {
+				"type": "string"
+			},
+			"file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat(dataset().folder,'/',dataset().sub_folder)",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().container",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
