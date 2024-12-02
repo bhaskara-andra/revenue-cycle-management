@@ -91,6 +91,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -117,7 +118,7 @@
 								},
 								"ifTrueActivities": [
 									{
-										"name": "Copy data1",
+										"name": "Archive Files",
 										"type": "Copy",
 										"dependsOn": [],
 										"policy": {
