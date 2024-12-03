@@ -219,7 +219,7 @@
 										"typeProperties": {
 											"variableName": "v_rowset",
 											"value": {
-												"value": "@activity('Lookup Config').output.value",
+												"value": "@item()",
 												"type": "Expression"
 											}
 										}
