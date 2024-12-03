@@ -227,17 +227,35 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
-											"variableName": "pipelineReturnValue",
-											"value": [
-												{
-													"key": "v_object",
-													"value": {
-														"type": "Object",
-														"content": "@item()"
-													}
-												}
-											],
-											"setSystemVariable": true
+											"variableName": "v_rowset",
+											"value": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									},
+									{
+										"name": "Set variable1",
+										"type": "SetVariable",
+										"dependsOn": [
+											{
+												"activity": "Set RowSet",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "v_object",
+											"value": {
+												"value": "@json(variables('v_rowset'))",
+												"type": "Expression"
+											}
 										}
 									}
 								]
@@ -249,7 +267,10 @@
 		],
 		"variables": {
 			"v_rowset": {
-				"type": "Array"
+				"type": "String"
+			},
+			"v_object": {
+				"type": "String"
 			}
 		},
 		"folder": {
