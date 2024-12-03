@@ -28,7 +28,13 @@
 					},
 					"dataset": {
 						"referenceName": "ds_adls_config",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "revenue-cycle-management",
+							"folder": "config",
+							"sub_folder": " ",
+							"file_name": "load_config.csv"
+						}
 					},
 					"firstRowOnly": false
 				}
