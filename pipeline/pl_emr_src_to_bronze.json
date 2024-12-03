@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup Is Active",
+				"name": "Lookup Config",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -38,7 +38,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup Is Active",
+						"activity": "Lookup Config",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -47,7 +47,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@equals(activity('Lookup Is Active').output.value.is_active,'1')\n",
+						"value": "@activity('Lookup Config').output.value",
 						"type": "Expression"
 					},
 					"activities": [
