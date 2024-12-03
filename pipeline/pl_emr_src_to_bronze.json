@@ -286,6 +286,9 @@
 				"type": "Array"
 			}
 		},
+		"folder": {
+			"name": "revenue_cycle_management"
+		},
 		"annotations": []
 	}
 }
