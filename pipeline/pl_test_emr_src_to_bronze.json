@@ -229,7 +229,7 @@
 										"typeProperties": {
 											"variableName": "v_rowset",
 											"value": {
-												"value": "@item()",
+												"value": "@string(item())",
 												"type": "Expression"
 											}
 										}
@@ -253,7 +253,7 @@
 										"typeProperties": {
 											"variableName": "v_object",
 											"value": {
-												"value": "@json(variables('v_rowset'))",
+												"value": "@array(json(variables('v_rowset')))",
 												"type": "Expression"
 											}
 										}
@@ -270,7 +270,7 @@
 				"type": "String"
 			},
 			"v_object": {
-				"type": "String"
+				"type": "Array"
 			}
 		},
 		"folder": {
