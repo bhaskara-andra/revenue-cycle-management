@@ -79,7 +79,17 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"fieldList": [],
+								"dataset": {
+									"referenceName": "ds_parquet_bronze_sink",
+									"type": "DatasetReference",
+									"parameters": {
+										"container": "revenue-cycle-management",
+										"folder": "bronze"
+									}
+								},
+								"fieldList": [
+									"exists"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
@@ -217,11 +227,17 @@
 										},
 										"userProperties": [],
 										"typeProperties": {
-											"variableName": "v_rowset",
-											"value": {
-												"value": "@item()",
-												"type": "Expression"
-											}
+											"variableName": "pipelineReturnValue",
+											"value": [
+												{
+													"key": "v_object",
+													"value": {
+														"type": "Object",
+														"content": "@item()"
+													}
+												}
+											],
+											"setSystemVariable": true
 										}
 									}
 								]
