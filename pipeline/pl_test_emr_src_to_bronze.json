@@ -84,7 +84,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"container": "revenue-cycle-management",
-										"folder": "bronze"
+										"folder": "bronze",
+										"file_name": {
+											"value": "@split(variables('v_object')[0].tablename,'.')[1]",
+											"type": "Expression"
+										}
 									}
 								},
 								"fieldList": [
@@ -235,7 +239,7 @@
 										}
 									},
 									{
-										"name": "Set variable1",
+										"name": "Set Object",
 										"type": "SetVariable",
 										"dependsOn": [
 											{
@@ -257,6 +261,30 @@
 												"type": "Expression"
 											}
 										}
+									},
+									{
+										"name": "table_name",
+										"type": "SetVariable",
+										"dependsOn": [
+											{
+												"activity": "Set Object",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "table_name",
+											"value": {
+												"value": "@split(variables('v_object')[0].tablename,'.')[1]",
+												"type": "Expression"
+											}
+										}
 									}
 								]
 							}
@@ -271,6 +299,9 @@
 			},
 			"v_object": {
 				"type": "Array"
+			},
+			"table_name": {
+				"type": "String"
 			}
 		},
 		"folder": {
