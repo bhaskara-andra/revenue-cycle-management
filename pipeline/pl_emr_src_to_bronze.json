@@ -54,7 +54,16 @@
 						{
 							"name": "FIle Exists",
 							"type": "GetMetadata",
-							"dependsOn": [],
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
+							"dependsOn": [
+								{
+									"activity": "Check IsActive",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -93,6 +102,8 @@
 						{
 							"name": "If File Exists",
 							"type": "IfCondition",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "FIle Exists",
@@ -187,6 +198,8 @@
 						{
 							"name": "Check Load Type",
 							"type": "IfCondition",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "If File Exists",
@@ -232,11 +245,47 @@
 									}
 								]
 							}
+						},
+						{
+							"name": "Check IsActive",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(item().is_active,'1')",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Set RowSet",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "v_rowset",
+											"value": {
+												"value": "@activity('Lookup Config').output.value",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
 						}
 					]
 				}
 			}
 		],
+		"variables": {
+			"v_rowset": {
+				"type": "Array"
+			}
+		},
 		"annotations": []
 	}
 }
