@@ -56,20 +56,15 @@
 						"value": "@activity('Lookup Config').output.value",
 						"type": "Expression"
 					},
+					"isSequential": false,
+					"batchCount": 5,
 					"activities": [
 						{
 							"name": "FIle Exists",
 							"type": "GetMetadata",
 							"state": "Inactive",
 							"onInactiveMarkAs": "Succeeded",
-							"dependsOn": [
-								{
-									"activity": "Check IsActive",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -206,85 +201,6 @@
 											"secureInput": false
 										},
 										"userProperties": []
-									}
-								]
-							}
-						},
-						{
-							"name": "Check IsActive",
-							"type": "IfCondition",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"expression": {
-									"value": "@equals(item().is_active,'1')",
-									"type": "Expression"
-								},
-								"ifTrueActivities": [
-									{
-										"name": "Set RowSet",
-										"type": "SetVariable",
-										"dependsOn": [],
-										"policy": {
-											"secureOutput": false,
-											"secureInput": false
-										},
-										"userProperties": [],
-										"typeProperties": {
-											"variableName": "v_rowset",
-											"value": {
-												"value": "@string(item())",
-												"type": "Expression"
-											}
-										}
-									},
-									{
-										"name": "Set Object",
-										"type": "SetVariable",
-										"dependsOn": [
-											{
-												"activity": "Set RowSet",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
-										"policy": {
-											"secureOutput": false,
-											"secureInput": false
-										},
-										"userProperties": [],
-										"typeProperties": {
-											"variableName": "v_object",
-											"value": {
-												"value": "@array(json(variables('v_rowset')))",
-												"type": "Expression"
-											}
-										}
-									},
-									{
-										"name": "table_name",
-										"type": "SetVariable",
-										"dependsOn": [
-											{
-												"activity": "Set Object",
-												"dependencyConditions": [
-													"Succeeded"
-												]
-											}
-										],
-										"policy": {
-											"secureOutput": false,
-											"secureInput": false
-										},
-										"userProperties": [],
-										"typeProperties": {
-											"variableName": "table_name",
-											"value": {
-												"value": "@split(variables('v_object')[0].tablename,'.')[1]",
-												"type": "Expression"
-											}
-										}
 									}
 								]
 							}
