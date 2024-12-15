@@ -1,0 +1,40 @@
+{
+	"name": "ds_adls_cecl_config",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_storage1ab",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"container": "test",
+				"file_name": "cecl_config"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "cecl_config.csv",
+				"fileSystem": "test"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "table_name",
+				"type": "String"
+			},
+			{
+				"name": "folder_path",
+				"type": "String"
+			},
+			{
+				"name": "is_active",
+				"type": "String"
+			}
+		]
+	}
+}
