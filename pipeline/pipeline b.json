@@ -1,0 +1,14 @@
+{
+	"name": "pipeline b",
+	"properties": {
+		"parameters": {
+			"filename": {
+				"type": "string"
+			},
+			"date": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
